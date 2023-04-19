@@ -18,17 +18,24 @@ public class Grades {                 //tworzymy klase
     }
 
     //METODA ZWRACAJĄCA OSTATNIĄ OCENĘ
-    public void showLast() {
+    int showLast() {
         int lastOne = grades[(this.size - 1)];
         System.out.println("ostatnia ocena to: " + lastOne);
+        return lastOne;
         //System.out.println("this.size to: " + this.size);
         //System.out.println("grades[this.size - 1] to: " + grades[this.size -1]);
     }
 
     //METODA ZWRACAJĄCA ŚREDNIĄ - nie wiem jak zrobić, żeby było po przecinku, zawsze zaokrągla do całości
-    public void checkAverage() {
-        double average = (grades[0] + grades[1] + grades[2] + grades[3] + grades[4] + grades[5] + grades[6] + grades[7] + grades[8] + grades[9]) / (this.size);
-        System.out.println("średnia ocen zaokrąglona do całości to: " + average);
+    double checkAverage() {
+        //double average = (grades[0] + grades[1] + grades[2] + grades[3] + grades[4] + grades[5] + grades[6] + grades[7] + grades[8] + grades[9]) / (this.size);
+        //System.out.println("średnia ocen zaokrąglona do całości to: " + average);
+        double sum = 0;
+        for (int i = 0; i < 10; i++) {
+            sum += grades[i];
+        }
+        System.out.println("średnia ocen to: " + sum / size);
+        return sum / size;
     }
 
     public static void main(String[] args) {
