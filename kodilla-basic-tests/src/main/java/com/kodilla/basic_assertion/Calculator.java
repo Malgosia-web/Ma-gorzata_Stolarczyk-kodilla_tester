@@ -1,16 +1,16 @@
 package com.kodilla.basic_assertion;
 
 public class Calculator {
-    int a;
-    int b;
+    double a;
+    double b;
 
-    public int sum( int a, int b){                  //metoda do sprawdzenia
+    public double sum( double a, double b){                  //metoda do sprawdzenia
         return a + b;
     }
-    public int subtract(int a, int b){              //metoda do sprawdzenie
+    public double subtract(double a, double b){              //metoda do sprawdzenie
         return a - b;
     }
-    public int multi(int a){
+    public double multi(double a){
         return a * a;
     }
 }
