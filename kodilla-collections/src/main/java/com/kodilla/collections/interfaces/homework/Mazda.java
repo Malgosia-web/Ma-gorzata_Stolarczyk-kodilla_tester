@@ -21,4 +21,8 @@ public class Mazda implements Car{
     public void decreaseSpeed() {
         speed -= braking;
     }
+    @Override
+    public int getSpeeding() {
+        return speeding;
+    }
 }

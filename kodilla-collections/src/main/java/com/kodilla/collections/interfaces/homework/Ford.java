@@ -21,4 +21,9 @@ public class Ford implements Car{
     public void decreaseSpeed() {
         speed -= braking;
     }
+    @Override
+    public int getSpeeding() {
+        return speeding;
+    }
+
 }
