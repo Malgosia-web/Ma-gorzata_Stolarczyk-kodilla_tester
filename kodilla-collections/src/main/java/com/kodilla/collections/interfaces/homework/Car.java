@@ -5,4 +5,5 @@ public interface Car {
     void increaseSpeed();
     void decreaseSpeed();
     int getSpeeding();
+    int getBraking();
 }

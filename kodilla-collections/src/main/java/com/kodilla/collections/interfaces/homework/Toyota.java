@@ -22,7 +22,7 @@ public class Toyota implements Car{
         speed -= braking;
     }
     @Override
-    public int getSpeeding() {
-        return speeding;
-    }
+    public int getSpeeding() {return speeding;}
+    @Override
+    public int getBraking() {return braking;}
 }
