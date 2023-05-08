@@ -3,13 +3,13 @@ package com.kodilla.homework;
 public class Bank {
     public CashMachine[] cashMachines;
     private int size;
+
     public Bank() {
         this.cashMachines = new CashMachine[size];
         this.size = 0;
     }
     //DODAWANIE BANKOMATÓW DO TABLICY
-    public void addCashMachines() {
-        CashMachine cashMachine = new CashMachine();
+    public void addCashMachines(CashMachine cashMachine) {
         this.size++;
         CashMachine[] newTab = new CashMachine[this.size];
         System.arraycopy(cashMachines, 0, newTab, 0, cashMachines.length);
@@ -81,12 +81,12 @@ public class Bank {
     }
     public static void main(String[] args) {
         Bank bank = new Bank();
-        bank.addCashMachines();
-        bank.addCashMachines();
+        bank.addCashMachines(new CashMachine());
+        bank.addCashMachines(new CashMachine());
         bank.cashMachines[0].add(500);
         bank.cashMachines[0].add(-200);
         bank.cashMachines[1].add(600);
-        bank.addCashMachines();
+        bank.addCashMachines(new CashMachine());
         bank.cashMachines[2].add(400);
         bank.cashMachines[2].add(-150);
         bank.cashMachines[1].add(-100);

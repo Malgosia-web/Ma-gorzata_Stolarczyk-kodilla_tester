@@ -15,16 +15,16 @@ public class BankTestSuite {
     //CZY DODAJE BANKOMATY
     @Test
     public void shouldAddTwoElementsToArray() {
-        bank.addCashMachines();
-        bank.addCashMachines();
+        bank.addCashMachines(new CashMachine());
+        bank.addCashMachines(new CashMachine());
         CashMachine[] cash = bank.getCashMachines();
         assertEquals(2, cash.length);
     }
     //CZY POPRAWNIE LICZY WPŁATY
     @Test
     public void shouldCalculateDeposit() {
-        bank.addCashMachines();
-        bank.addCashMachines();
+        bank.addCashMachines(new CashMachine());
+        bank.addCashMachines(new CashMachine());
         bank.cashMachines[0].add(500);
         bank.cashMachines[0].add(-100);
         bank.cashMachines[1].add(600);
@@ -33,8 +33,8 @@ public class BankTestSuite {
     //CZY POPRAWNIE LICZY WYPŁATY
     @Test
     public void shouldCalculateWithdrawal() {
-        bank.addCashMachines();
-        bank.addCashMachines();
+        bank.addCashMachines(new CashMachine());
+        bank.addCashMachines(new CashMachine());
         bank.cashMachines[0].add(500);
         bank.cashMachines[0].add(-100);
         bank.cashMachines[1].add(600);
@@ -44,8 +44,8 @@ public class BankTestSuite {
     //CZY POPRAWNIE LICZY SALDO
     @Test
     public void shouldCalculateSum() {
-        bank.addCashMachines();
-        bank.addCashMachines();
+        bank.addCashMachines(new CashMachine());
+        bank.addCashMachines(new CashMachine());
         bank.cashMachines[0].add(500);
         bank.cashMachines[0].add(-100);
         bank.cashMachines[1].add(600);
@@ -59,8 +59,8 @@ public class BankTestSuite {
     //LICZBA TRANSAKCJI SIĘ ZWIĘKSZA - wpłaty
     @Test
     public void shouldCalculateDepositTransaction() {
-        bank.addCashMachines();
-        bank.addCashMachines();
+        bank.addCashMachines(new CashMachine());
+        bank.addCashMachines(new CashMachine());
         bank.cashMachines[0].add(500);
         bank.cashMachines[0].add(-100);
         bank.cashMachines[1].add(600);
@@ -69,8 +69,8 @@ public class BankTestSuite {
     //LICZBA TRANSAKCJI SIĘ ZWIĘKSZA - wypłaty
     @Test
     public void shouldCalculateWithdrawalTransaction() {
-        bank.addCashMachines();
-        bank.addCashMachines();
+        bank.addCashMachines(new CashMachine());
+        bank.addCashMachines(new CashMachine());
         bank.cashMachines[0].add(500);
         bank.cashMachines[0].add(-100);
         bank.cashMachines[1].add(600);
@@ -79,8 +79,8 @@ public class BankTestSuite {
     //LICZBA TRANSAKCJI SIĘ ZWIĘKSZA - wszystkie
     @Test
     public void shouldCalculateAllTransaction() {
-        bank.addCashMachines();
-        bank.addCashMachines();
+        bank.addCashMachines(new CashMachine());
+        bank.addCashMachines(new CashMachine());
         bank.cashMachines[0].add(500);
         bank.cashMachines[0].add(-100);
         bank.cashMachines[1].add(600);
@@ -94,8 +94,8 @@ public class BankTestSuite {
     //CZY LICZY ŚREDNIĄ WPLATĘ
     @Test
     public void shouldCalculateDepositAverage() {
-        bank.addCashMachines();
-        bank.addCashMachines();
+        bank.addCashMachines(new CashMachine());
+        bank.addCashMachines(new CashMachine());
         bank.cashMachines[0].add(500);
         bank.cashMachines[0].add(-100);
         bank.cashMachines[1].add(600);
@@ -104,8 +104,8 @@ public class BankTestSuite {
     //CZY LICZY ŚREDNIĄ WYPŁATĘ
     @Test
     public void shouldCalculateWithdrawalAverage() {
-        bank.addCashMachines();
-        bank.addCashMachines();
+        bank.addCashMachines(new CashMachine());
+        bank.addCashMachines(new CashMachine());
         bank.cashMachines[0].add(500);
         bank.cashMachines[0].add(-100);
         bank.cashMachines[1].add(600);

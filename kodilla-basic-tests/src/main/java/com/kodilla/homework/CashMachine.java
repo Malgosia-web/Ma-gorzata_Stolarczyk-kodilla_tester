@@ -5,7 +5,7 @@ public class CashMachine {
     private int[] cashWithdrawal;
     private int sizeD;
     private int sizeW;
-    private int amount;
+
     public CashMachine() {
         this.sizeD = 0;
         this.sizeW = 0;
@@ -14,7 +14,6 @@ public class CashMachine {
     }
     // DODAWANIE WPŁATY Z TWORZENIEM NOWEJ TABLICY
     public void add(int amount){
-        this.amount = amount;
         if (amount > 0) {
             this.sizeD++;
             int[] newTabD = new int[this.sizeD];
