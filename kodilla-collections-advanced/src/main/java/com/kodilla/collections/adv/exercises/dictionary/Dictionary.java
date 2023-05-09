@@ -35,5 +35,4 @@ public class Dictionary {
     public int size() {
         return dictionary.size();
     }
-
 }

@@ -12,7 +12,7 @@ public class Grades {
     public void add(int value) {                //gdy tablica jest za mała tworzymy nową tablicę i kopiujemy elementy ze starej
         this.size++;                            //zwiększamy o jeden wartość nowej tablicy
         int[] newTab = new int[this.size];      //tworzymy pustą tablicę z nowym rozmiarem
-        System.arraycopy(values, 0, newTab, 0, values.length);  //kopiujemy tablicę źródłową do docelowej (jak pętla for)
+        System.arraycopy(values, 0, newTab, 0, values.length);  //kopiujemy tablicę źródłową do docelowej (jak pętla for); source array, starting position in source array, destination array, starting position in destination array, number of elements to be copied
         newTab[this.size - 1] = value;          //przypisujemy nową wartość do ostatniego elementu (-1 bo indeksy liczymy od 0)
         this.values = newTab;                   //przypisanie nowej tablicy do tablicy klasowej
     }

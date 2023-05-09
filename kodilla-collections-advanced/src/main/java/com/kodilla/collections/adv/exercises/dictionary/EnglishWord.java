@@ -29,3 +29,4 @@ public class EnglishWord {
         return Objects.hash(partOfSpeech, word);
     }
 }
+
