@@ -11,6 +11,5 @@ public class App {
 
         Person Sebastian = new Person("Sebastian", 21, mechanic);
         Sebastian.showResponsibilities();
-
     }
 }
