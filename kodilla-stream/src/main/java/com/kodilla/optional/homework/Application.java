@@ -5,27 +5,28 @@ import java.util.List;
 import java.util.Optional;
 
 public class Application {
+    private static List<Student> uczniowie = new ArrayList<>();
 
-    public List<Student> addStudents() {
-        List<Student> s = new ArrayList<>();
-        s.add(new Student("Kowalski", new Teacher("Szydełko")));
-        s.add(new Student("Kawal", new Teacher("Włółczek")));
-        s.add(new Student("Kiwalski", new Teacher("Druciak")));
-        s.add(new Student("Kewal", null));
-        return s;
+    public static String checkStudents(Student student) {
+        Optional<Teacher> optionalTeacher = Optional.ofNullable(student.getTeacher());
+        String undefined = optionalTeacher.orElse(new Teacher("undefined")).getName();
+        System.out.println("uczeń: " + student.getName() + ", nauczyciel: " + undefined);
+        return undefined;
     }
-    public List<Student> checkTeacher() {
-        List<Student> students = addStudents();
-        for (Student student : students) {
-            Optional<Teacher> optionalTeacher = Optional.ofNullable(student.getTeacher());
-            String undefined = optionalTeacher.orElse(new Teacher("<undefined>")).getName();
-            System.out.println("uczeń: " + student.getName() + ", nauczyciel: " + undefined);
-        }
-        return students ;
-    }
+
     public static void main(String[] args) {
-        Application a = new Application();
-        a.checkTeacher();
+
+        Student Adam = new Student("Adam", new Teacher("Piotr"));
+        Student Gabi = new Student("Gabi", new Teacher("Gosia"));
+        Student Sebastian = new Student("Sebastian", null);
+
+        uczniowie.add(Adam);
+        uczniowie.add(Gabi);
+        uczniowie.add(Sebastian);
+
+        for (Student students : uczniowie) {
+            checkStudents(students);
+        }
     }
 }
 
