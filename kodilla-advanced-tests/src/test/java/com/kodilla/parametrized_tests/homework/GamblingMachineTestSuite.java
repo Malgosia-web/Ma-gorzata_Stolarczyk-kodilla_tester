@@ -8,8 +8,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import java.util.*;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 class GamblingMachineTestSuite {
 
@@ -33,8 +32,7 @@ class GamblingMachineTestSuite {
         for (String n: number) {
             numbers.add(Integer.parseInt(n));
         }
-        if (machine.howManyWins(numbers) >= 0 && machine.howManyWins(numbers) <=6) {
-            System.out.println("wynik jest ok");
-        }
+        boolean a = (machine.howManyWins(numbers) >= 0 && machine.howManyWins(numbers) <=6);
+        assertTrue(a);
     }
 }
