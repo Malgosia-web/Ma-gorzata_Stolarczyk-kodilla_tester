@@ -1,3 +1,5 @@
+package com.kodilla.stream;
+
 import com.kodilla.stream.UsersManager;
 import org.junit.jupiter.api.Test;
 
