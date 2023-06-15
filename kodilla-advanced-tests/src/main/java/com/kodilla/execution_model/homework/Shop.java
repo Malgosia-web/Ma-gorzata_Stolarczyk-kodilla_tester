@@ -9,7 +9,7 @@ public class Shop {
     List<Order> orders = new ArrayList<>();
 
     public void addOrder(Order order) {
-        orders.add(new Order(order.getValue(),order.getDate(),order.getLogin()));
+        orders.add(order);
     }
 
     public List<Order> checkDates(LocalDate dateMin, LocalDate dateMax) {

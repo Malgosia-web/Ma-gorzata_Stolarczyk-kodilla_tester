@@ -27,16 +27,13 @@ class ShopTestSuite {
     @Test
     public void isDateFilterCorrect() {
         List<Order> order = new ArrayList<>(shop.checkDates(LocalDate.of(2023,06,9),LocalDate.of(2023,06,11)));
-        //assertTrue(o3.equals(order.get(0)));
-        //assertEquals(o3, order.get(0));
-        assertEquals(1,order.size());
+        assertTrue(o3.equals(order.get(0)));
     }
     //czy filtruje zamówienia z zadanego zakresu (wartość zamówień)
     @Test
     public void isValueFilterCorrect() {
         List<Order> order = new ArrayList<>(shop.checkValue(300,400));
-        assertEquals(1, order.size());
-        //assertTrue(o3.equals(order.get(0)));
+        assertTrue(o3.equals(order.get(0)));
     }
     //czy dobrze liczy ilość zamówień
     @Test
