@@ -17,12 +17,12 @@ class WeatherServiceTestSuite {
 
     @BeforeEach
     public void add() {
-        weatherService.addSubscriber(client1, 1);
-        weatherService.addSubscriber(client1, 2);
-        weatherService.addSubscriber(client2, 2);
-        weatherService.addSubscriber(client3, 1);
-        weatherService.addSubscriber(client3, 2);
-        weatherService.addSubscriber(client3, 3);
+        weatherService.addSubscriber(client1, "1");
+        weatherService.addSubscriber(client1, "2");
+        weatherService.addSubscriber(client2, "2");
+        weatherService.addSubscriber(client3, "1");
+        weatherService.addSubscriber(client3, "2");
+        weatherService.addSubscriber(client3, "3");
     }
 
     //client4 nie jest nigdzie zapisany, nie powinien nic dostać
@@ -40,11 +40,10 @@ class WeatherServiceTestSuite {
         Mockito.verify(client2).receive(globalAlert);
         Mockito.verify(client3).receive(globalAlert);
     }
-
-    //client1 i client3 dostają lokalny alert area1, client2 nie
+//    //client1 i client3 dostają lokalny alert area1, client2 nie
     @Test
     public void subscribedClientShouldReceiveAreaAlert() {
-        weatherService.sendAreaAlert(areaAlert, 1);
+        weatherService.sendAreaAlert(areaAlert, "1");
         Mockito.verify(client1).receive(areaAlert);
         Mockito.verify(client3).receive(areaAlert);
         Mockito.verify(client2, Mockito.never()).receive(areaAlert);
@@ -53,8 +52,8 @@ class WeatherServiceTestSuite {
     //client1 wypisuje się z area1, client3 zostaje
     @Test
     public void unsubscribedClientShouldNotReceiveAreaAlert() {
-        weatherService.removeSubscriberFromArea(client1, 1);
-        weatherService.sendAreaAlert(areaAlert, 1);
+        weatherService.removeSubscriberFromArea(client1, "1");
+        weatherService.sendAreaAlert(areaAlert, "1");
         Mockito.verify(client1, Mockito.never()).receive(areaAlert);
         Mockito.verify(client3).receive(areaAlert);
     }
@@ -64,8 +63,8 @@ class WeatherServiceTestSuite {
     public void unsubscribedClientShouldNotReceiveAlert() {
         weatherService.removeSubscriberGlobal(client1);
         weatherService.sendGlobalAlert(globalAlert);
-        weatherService.sendAreaAlert(areaAlert, 1);
-        weatherService.sendAreaAlert(areaAlert, 2);
+        weatherService.sendAreaAlert(areaAlert, "1");
+        weatherService.sendAreaAlert(areaAlert, "2");
         Mockito.verify(client1, Mockito.never()).receive(globalAlert);
         Mockito.verify(client1, Mockito.never()).receive(areaAlert);
     }
@@ -73,8 +72,8 @@ class WeatherServiceTestSuite {
     //client1 i client3 nie dostają alertów z usuniętego area1
     @Test
     public void deleteArea() {
-        weatherService.removeArea(1);
-        weatherService.sendAreaAlert(areaAlert, 1);
+        weatherService.removeArea("1");
+        weatherService.sendAreaAlert(areaAlert, "1");
         Mockito.verify(client1, Mockito.never()).receive(areaAlert);
         Mockito.verify(client3, Mockito.never()).receive(areaAlert);
     }

@@ -3,51 +3,47 @@ package com.kodilla.mockito.homework;
 import java.util.*;
 
 public class WeatherService {
-    private Set<WeatherClient> area1 = new HashSet<>();
-    private Set<WeatherClient> area2 = new HashSet<>();
-    private Set<WeatherClient> area3 = new HashSet<>();
-    Set<WeatherClient> global = new HashSet<>();
+    private Map<String, Set<WeatherClient>> subscribers = new HashMap<>();
 
     //dodaje chętnych
-    public void addSubscriber(WeatherClient client, int area) {
-        if (area == 1)  {this.area1.add(client); this.global.add(client);}
-        else if (area == 2) {this.area2.add(client); this.global.add(client);}
-        else if (area == 3) {this.area3.add(client); this.global.add(client);}
-        else System.out.println("nie ma takiego obszaru");
+    public void addSubscriber(WeatherClient client, String area) {
+        if (this.subscribers.containsKey(area)) {
+            this.subscribers.get(area).add(client);
+        }
+        else {
+            Set<WeatherClient> clients = new HashSet<>();
+            clients.add(client);
+            this.subscribers.put(area, clients);
+        }
     }
-
     //wysyła alert do wszystkich, niezależnie od rejonu
     public void sendGlobalAlert(WeatherAlert alert) {
-        this.global.forEach(client -> client.receive(alert));
+        Set<WeatherClient> clients = new HashSet<>();
+        for (Map.Entry<String, Set<WeatherClient>> global : subscribers.entrySet()) {
+            global.getValue();
+            for (WeatherClient c : global.getValue()) {
+                clients.add(c);
+            }
+        }
+        for (WeatherClient c : clients) {
+            c.receive(alert);
+        }
     }
-
     //wysyła alert do zapisanych na konkretny rejon
-    public void sendAreaAlert(WeatherAlert alert, int area) {
-        if (area == 1) this.area1.forEach(client -> client.receive(alert));
-        else if (area == 2) this.area2.forEach(client -> client.receive(alert));
-        else if (area == 3) this.area3.forEach(client -> client.receive(alert));
-        else System.out.println("nie ma takiego obszaru");
+    public void sendAreaAlert(WeatherAlert alert, String area) {
+        this.subscribers.get(area).forEach(client -> client.receive(alert));
     }
-
     //usuwa z wszystkich alertów
     public void removeSubscriberGlobal(WeatherClient client) {
-        this.area1.remove(client);
-        this.area2.remove(client);
-        this.area3.remove(client);
-        this.global.remove(client);
+        this.subscribers.values().forEach(weatherClients -> weatherClients.remove(client));
     }
     //usuwa z lokalnych alertów
-    public void removeSubscriberFromArea(WeatherClient client, int area) {
-        if (area == 1) this.area1.remove(client);
-        else if (area == 2) this.area2.remove(client);
-        else if (area == 3) this.area3.remove(client);
-        else System.out.println("nie ma takiego obszaru");
+    public void removeSubscriberFromArea(WeatherClient client, String area) {
+        this.subscribers.get(area).remove(client);
     }
     //usuwa rejon
-    public void removeArea(int area) {
-        if (area == 1) this.area1.clear();
-        else if (area == 2) this.area2.clear();
-        else if (area == 3) this.area3.clear();
-        else System.out.println("nie ma takiego obszaru");
+    public void removeArea(String area) {
+        this.subscribers.get(area).clear();
     }
 }
+
