@@ -21,11 +21,11 @@ public class CarGarageTestSuite {
         List<String> possibleCarTypes = Arrays.asList("Cabrio", "SUV", "Sedan");
         Assertions.assertTrue(possibleCarTypes.contains(carType));
     }
-    //czy teraz (23:19) światła są zapalone
+    //czy teraz (14:33) światła są zapalone
     @Test
     public void checkLights() {
         CarGarage c = new CarGarage();
         c.changeCarType().hasHeadlightsTurnedOn();
-        Assertions.assertTrue(c.changeCarType().hasHeadlightsTurnedOn()); //są
+        Assertions.assertFalse(c.changeCarType().hasHeadlightsTurnedOn()); // nie są
     }
 }
