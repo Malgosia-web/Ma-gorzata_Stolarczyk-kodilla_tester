@@ -2,7 +2,9 @@ plugins {
     id 'java'
 }
 
-version 'unspecified'
+group = 'com.kodilla'
+version = '1.0-SNAPSHOT'
+sourceCompatibility = JavaVersion.VERSION_17
 
 repositories {
     mavenCentral()
@@ -10,5 +12,9 @@ repositories {
 
 dependencies {
     implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
+    implementation 'com.google.guava:guava:31.1-jre'
+    implementation(group: 'com.github.lewka', name: 'ocular', version: '1.0.5'){
+        exclude group: "net.sf", module: "jargs"
+    }
     testImplementation group: 'junit', name: 'junit', version: '5.3'
 }
