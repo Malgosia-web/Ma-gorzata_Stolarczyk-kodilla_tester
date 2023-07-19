@@ -19,7 +19,7 @@ public class KodillaLoginPom extends AbstractPom {
 
     public KodillaLoginPom(WebDriver driver) {
         super(driver);
-        PageFactory.initElements(driver, this);
+        PageFactory.initElements(driver, this); //inicjalizacja obiektów na stronie
     }
 
     public boolean login(String email, String password) {
@@ -38,15 +38,20 @@ public class KodillaLoginPom extends AbstractPom {
         System.setProperty("webdriver.chrome.driver", "chromedriver");
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--remote-allow-origins=*");
+
         //nowy obiekt chromedriver
         WebDriver driver = new ChromeDriver(chromeOptions);
+
         //nawigacja do strony
         driver.navigate().to("https://kodilla.com/pl/test/login");
+
         //inicjalizacja obiektów na stronie
         PageFactory.initElements(driver, KodillaLoginPom.class);
+
         //podanie danych
         emailField.sendKeys("testuser@gmail.com");
         passwordField.sendKeys("Haslo");
+
         //zamknięcie przeglądarki
         driver.close();
     }*/

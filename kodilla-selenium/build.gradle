@@ -17,4 +17,5 @@ dependencies {
         exclude group: "net.sf", module: "jargs"
     }
     testImplementation group: 'junit', name: 'junit', version: '5.3'
+    testImplementation 'com.codeborne:selenide:6.12.3'
 }
