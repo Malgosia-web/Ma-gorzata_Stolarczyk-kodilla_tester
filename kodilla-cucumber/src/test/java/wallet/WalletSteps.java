@@ -48,4 +48,8 @@ public class WalletSteps {
     public void $200_should_be_dispensed() {
         Assertions.assertEquals(200, cashSlot.getContents());
     }
+    @Then("the balance of my wallet should be $170")
+    public void the_balance_of_my_wallet_should_be_$170() {
+        Assertions.assertEquals( 170, wallet.getBalance(), "Incorrect wallet balance");
+    }
 }
