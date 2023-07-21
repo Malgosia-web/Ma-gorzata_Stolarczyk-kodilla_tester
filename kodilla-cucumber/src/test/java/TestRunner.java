@@ -4,7 +4,7 @@ import org.junit.platform.suite.api.Suite;
 
     @Suite
     @IncludeEngines("cucumber")
-    @SelectClasspathResource("wallet")
+    @SelectClasspathResource("homework")
     public class TestRunner {
 
     }
