@@ -35,4 +35,14 @@ class BookControllerTest {
         bookController.addBook(bookDto);
         Mockito.verify(bookServiceMock).addBook(bookDto);
     }
+
+    @Test
+    void shouldRemoveBook() {
+        BookService bookServiceMock = Mockito.mock(BookService.class);
+        BookController bookController = new BookController(bookServiceMock);
+        BookDto bookDto = new BookDto("title1", "author1");
+        bookController.addBook(bookDto);
+        bookController.removeBook(bookDto);
+        Mockito.verify(bookServiceMock).removeBook(bookDto);
+    }
 }
