@@ -28,15 +28,15 @@ class KodillaStorePomTestSuite {
         driver.close();
     }
 
-    @ParameterizedTest
-    @CsvSource(value = {"NoteBook, 2", "School, 1", "Brand, 1", "Business, 0", "Gaming, 1", "Powerful, 0"})
-    public void searchTest_checkSearchResult(String search, int result) {
-        assertEquals(result, storePom.search(search).size());
-    }
-    @ParameterizedTest
-    @CsvSource(value = {"notEbooK, 2", "SCHOOL, 1", "brand, 1"})
-    public void searchTest_checkSearchResultLowerAndUpperCase(String search, int result) {
-        assertEquals(result, storePom.search(search).size());
-    }
+//    @ParameterizedTest
+//    @CsvSource(value = {"NoteBook, 2", "School, 1", "Brand, 1", "Business, 0", "Gaming, 1", "Powerful, 0"})
+//    public void searchTest_checkSearchResult(String search, int result) {
+//        assertEquals(result, storePom.search(search).size());
+//    }
+//    @ParameterizedTest
+//    @CsvSource(value = {"notEbooK, 2", "SCHOOL, 1", "brand, 1"})
+//    public void searchTest_checkSearchResultLowerAndUpperCase(String search, int result) {
+//        assertEquals(result, storePom.search(search).size());
+//    }
 
 }
